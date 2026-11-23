@@ -2574,10 +2574,38 @@ textarea.form-control {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 16px;
   padding-top: 24px;
   font-size: 0.8125rem;
   color: #94A3B8;
+}
+
+.footer-dev {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  color: #94A3B8;
+}
+
+.footer-dev a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.footer-dev a:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.footer-dev img {
+  height: 20px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  vertical-align: middle;
 }
 
 /* ==========================================================================
@@ -2833,6 +2861,12 @@ textarea.form-control {
   .info-cards-grid,
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
   }
 
   /* Hero Mobile Idêntica à Referência */
