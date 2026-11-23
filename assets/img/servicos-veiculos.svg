@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-labelledby="title-veic desc-veic">
+  <title id="title-veic">Serviços Automotivos e Liberação de Veículos — Despachante Bordon</title>
+  <desc id="desc-veic">Ilustração moderna de carro sedan com checklist de serviços do Despachante Bordon em Sumaré e Nova Odessa.</desc>
+  <defs>
+    <linearGradient id="bgV" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E8ECF9"/>
+    </linearGradient>
+    <linearGradient id="carBody" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0%" stop-color="#131F59"/>
+      <stop offset="55%" stop-color="#1E328A"/>
+      <stop offset="100%" stop-color="#0B1238"/>
+    </linearGradient>
+    <linearGradient id="carGlass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93C5FD"/>
+      <stop offset="100%" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <filter id="shV" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="14" flood-color="#0B1238" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bgV)"/>
+  <!-- Faixas geométricas inspiradas no escudo Bordon -->
+  <path d="M0 440 L800 380 L800 600 L0 600 Z" fill="#131F59"/>
+  <path d="M0 440 L800 380 L800 392 L0 452 Z" fill="#C91D24"/>
+
+  <!-- Card Checklist de Serviços acima -->
+  <g transform="translate(52, 46)" filter="url(#shV)">
+    <rect width="340" height="190" rx="18" fill="#FFFFFF" stroke="#E2E8F0"/>
+    <rect x="20" y="20" width="136" height="26" rx="13" fill="#FEF2F2"/>
+    <text x="88" y="37" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="800" fill="#C91D24">AGILIDADE GARANTIDA</text>
+    <text x="20" y="72" font-family="Arial, sans-serif" font-size="18" font-weight="800" fill="#0B1238">Leque Completo de Serviços</text>
+
+    <g transform="translate(20, 92)" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#334155">
+      <circle cx="8" cy="6" r="6" fill="#16A34A"/>
+      <text x="24" y="10">Liberação de Veículos Presos</text>
+      <circle cx="8" cy="34" r="6" fill="#16A34A"/>
+      <text x="24" y="38">Transferência &amp; 1º Emplacamento</text>
+      <circle cx="8" cy="62" r="6" fill="#16A34A"/>
+      <text x="24" y="66">Remarcação, Sinistro &amp; Dívida Ativa</text>
+    </g>
+  </g>
+
+  <!-- Card Status Online -->
+  <g transform="translate(460, 72)" filter="url(#shV)">
+    <rect width="286" height="128" rx="18" fill="#1A2870"/>
+    <circle cx="42" cy="46" r="18" fill="#16A34A"/>
+    <path d="M35 46 L40 51 L50 40" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="74" y="42" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="#FFFFFF">Sem Filas no Detran</text>
+    <text x="74" y="62" font-family="Arial, sans-serif" font-size="12" fill="#CBD5E1">Resolva tudo pelo WhatsApp</text>
+    <rect x="24" y="84" width="238" height="28" rx="8" fill="rgba(255,255,255,0.12)"/>
+    <text x="143" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="11.5" font-weight="700" fill="#FCA5A5">Sumaré • Nova Odessa • Região</text>
+  </g>
+
+  <!-- Carro Moderno SUV/Sedan Estilizado -->
+  <g transform="translate(88, 240)" filter="url(#shV)">
+    <!-- Sombra no solo -->
+    <ellipse cx="312" cy="216" rx="270" ry="22" fill="#05091E" opacity="0.45"/>
+
+    <!-- Carroceria -->
+    <path d="M62 154 L92 104 Q118 76 168 68 L368 62 Q435 62 478 102 L548 118 Q592 126 596 154 L596 184 Q596 196 580 196 L528 196 A44 44 0 0 0 440 196 L184 196 A44 44 0 0 0 96 196 L54 196 Q38 196 38 180 L42 162 Q44 154 62 154 Z" fill="url(#carBody)"/>
+
+    <!-- Friso Vermelho Esportivo -->
+    <path d="M98 158 L545 148 L545 154 L98 164 Z" fill="#C91D24"/>
+
+    <!-- Vidros -->
+    <path d="M126 112 L166 78 L312 74 L312 114 Z" fill="url(#carGlass)"/>
+    <path d="M324 74 L366 74 Q420 76 458 108 L324 114 Z" fill="url(#carGlass)"/>
+
+    <!-- Farol e Lanterna -->
+    <path d="M554 128 L592 138 L586 152 L546 144 Z" fill="#F8FAFC"/>
+    <path d="M44 146 L74 142 L70 158 L42 160 Z" fill="#EF4444"/>
+
+    <!-- Rodas -->
+    <g transform="translate(140, 192)">
+      <circle r="40" fill="#0F172A"/>
+      <circle r="24" fill="#CBD5E1"/>
+      <circle r="10" fill="#1A2870"/>
+    </g>
+    <g transform="translate(484, 192)">
+      <circle r="40" fill="#0F172A"/>
+      <circle r="24" fill="#CBD5E1"/>
+      <circle r="10" fill="#1A2870"/>
+    </g>
+  </g>
+</svg>

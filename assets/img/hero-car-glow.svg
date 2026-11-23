@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" width="700" height="420" aria-hidden="true">
+  <defs>
+    <radialGradient id="headlightGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="28%" stop-color="#7DD3FC" stop-opacity="0.65"/>
+      <stop offset="65%" stop-color="#2563EB" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0B1646" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="carSil" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E3A8A" stop-opacity="0.72"/>
+      <stop offset="45%" stop-color="#0B1646" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#04091E" stop-opacity="0.98"/>
+    </linearGradient>
+    <linearGradient id="rimLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#93C5FD" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="blurGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8"/>
+    </filter>
+  </defs>
+
+  <!-- Halo azul atrás do veículo -->
+  <ellipse cx="360" cy="195" rx="290" ry="150" fill="#1D4ED8" opacity="0.22" filter="url(#blurGlow)"/>
+
+  <!-- Silhueta esportiva moderna (visão 3/4 frontal) -->
+  <path d="M90 250 Q120 185 215 162 L275 110 Q325 68 425 60 L580 56 Q640 58 675 92 L695 168 L695 315 L145 315 Q95 300 90 250 Z" fill="url(#carSil)"/>
+
+  <!-- Retrovisor esquerdo -->
+  <path d="M235 142 Q220 130 226 118 Q238 110 258 116 L266 134 Z" fill="#13235C" stroke="#60A5FA" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <!-- Linha de luz no capô e teto -->
+  <path d="M278 112 Q335 72 435 64 L575 61" fill="none" stroke="url(#rimLight)" stroke-width="2.4"/>
+  <path d="M168 188 Q275 156 445 146" fill="none" stroke="#60A5FA" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M132 232 Q215 216 335 212" fill="none" stroke="#38BDF8" stroke-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- Grade frontal esportiva escura -->
+  <path d="M355 215 L635 210 L615 288 L380 288 Z" fill="#050B24" stroke="#3B82F6" stroke-opacity="0.3" stroke-width="1.5"/>
+
+  <!-- Brilho difuso do Farol LED -->
+  <ellipse cx="290" cy="212" rx="115" ry="52" fill="url(#headlightGlow)"/>
+
+  <!-- Farol LED Sharp (Assinatura luminosa moderna) -->
+  <path d="M210 198 L335 212 L318 228 L224 224 Z" fill="#0F1F5C" stroke="#7DD3FC" stroke-width="1.8"/>
+  <path d="M216 202 L328 214 L318 223 L228 219" fill="none" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M216 202 L328 214" fill="none" stroke="#38BDF8" stroke-width="7" stroke-linecap="round" opacity="0.45" filter="url(#blurGlow)"/>
+  <circle cx="242" cy="211" r="7" fill="#FFFFFF"/>
+  <circle cx="275" cy="214" r="5" fill="#E0F2FE"/>
+</svg>
