@@ -231,4 +231,53 @@
       });
     }
   }
+
+  /* 10. Scroll Reveal progressivo para seções e cards (leve, 60fps GPU) */
+  const revealSelectors = [
+    '.section-header',
+    '.stat-item',
+    '.service-card',
+    '.why-visual',
+    '.why-bordon-section .why-check-list li',
+    '.pfpj-card',
+    '.testimonial-card',
+    '.faq-item',
+    '.info-card',
+    '.cta-box',
+  ];
+
+  const revealTargets = document.querySelectorAll(revealSelectors.join(', '));
+  if (revealTargets.length) {
+    // Aplicar stagger por grupo pai
+    const parentCounters = new WeakMap();
+    revealTargets.forEach(function (el) {
+      const parent = el.parentElement;
+      const idx = parent ? (parentCounters.get(parent) || 0) : 0;
+      if (parent) parentCounters.set(parent, idx + 1);
+      el.classList.add('reveal-item');
+      el.style.setProperty('--reveal-delay', Math.min(idx * 0.08, 0.48).toFixed(2) + 's');
+    });
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver(
+        function (entries, obs) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -30px 0px' }
+      );
+
+      revealTargets.forEach(function (el) {
+        revealObserver.observe(el);
+      });
+    } else {
+      revealTargets.forEach(function (el) {
+        el.classList.add('is-revealed');
+      });
+    }
+  }
 })();

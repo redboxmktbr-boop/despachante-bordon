@@ -232,8 +232,10 @@ h1, h2, h3, h4, h5 {
   color: #CBD5E1;
 }
 
-/* Botões */
+/* Botões com efeito shine + elevação suave no hover */
 .btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -245,20 +247,51 @@ h1, h2, h3, h4, h5 {
   border-radius: var(--radius-md);
   border: 2px solid transparent;
   cursor: pointer;
-  transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.25s ease,
+              box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease,
+              color 0.25s ease;
   text-align: center;
   line-height: 1.2;
   white-space: nowrap;
+  z-index: 1;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.28) 50%, transparent 100%);
+  transform: skewX(-22deg);
+  transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 145%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
 }
 
 .btn:active {
-  transform: translateY(1px);
+  transform: translateY(0) scale(0.98);
 }
 
 .btn svg {
   width: 20px;
   height: 20px;
   flex-shrink: 0;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:hover svg {
+  transform: scale(1.12);
 }
 
 .btn-wa {
@@ -268,7 +301,7 @@ h1, h2, h3, h4, h5 {
 }
 .btn-wa:hover {
   background-color: var(--wa-700);
-  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(22, 163, 74, 0.42);
 }
 
 .btn-red {
@@ -278,7 +311,7 @@ h1, h2, h3, h4, h5 {
 }
 .btn-red:hover {
   background-color: var(--red-700);
-  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(201, 29, 36, 0.42);
 }
 
 .btn-navy {
@@ -288,7 +321,7 @@ h1, h2, h3, h4, h5 {
 }
 .btn-navy:hover {
   background-color: var(--navy-900);
-  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(11, 18, 56, 0.28);
 }
 
 .btn-outline-navy {
@@ -2732,22 +2765,113 @@ textarea.form-control {
   }
 
   .wa-float {
-    display: none;
+    display: inline-flex;
+    right: 18px;
+    bottom: 20px;
+    width: 58px;
+    height: 58px;
   }
 
   .mobile-sticky-bar {
-    display: flex;
+    display: none !important;
   }
 
   body {
-    padding-bottom: 72px;
+    padding-bottom: 0;
   }
 
   .cookie-banner {
     left: 12px;
-    right: 12px;
-    bottom: 82px;
+    right: 88px;
+    bottom: 18px;
     max-width: none;
+  }
+}
+
+/* ==========================================================================
+   Animações de Scroll Reveal & Micro-interações (GPU 60fps / Core Web Vitals)
+   ========================================================================== */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover enriquecido em cards */
+.service-card .service-icon,
+.stat-item .stat-icon,
+.pfpj-card .pfpj-icon {
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+}
+
+.service-card:hover .service-icon,
+.stat-item:hover .stat-icon,
+.pfpj-card:hover .pfpj-icon {
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.stat-item,
+.testimonial-card,
+.info-card {
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease;
+}
+
+.stat-item:hover,
+.testimonial-card:hover,
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--navy-700);
+}
+
+/* Levitação sutil no CRLV da Hero e nos cards flutuantes */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.hero-crlv-wrap {
+  animation: floatGentle 5.5s ease-in-out infinite;
+}
+
+.why-float-exp {
+  animation: floatGentle 5s ease-in-out infinite;
+}
+
+.why-float-speed {
+  animation: floatGentle 6s ease-in-out 0.8s infinite;
+}
+
+.why-float-trust {
+  animation: floatGentle 5.4s ease-in-out 1.4s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-crlv-wrap,
+  .why-float-exp,
+  .why-float-speed,
+  .why-float-trust,
+  .btn::after {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
