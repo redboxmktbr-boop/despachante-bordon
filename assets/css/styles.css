@@ -1403,33 +1403,57 @@ textarea.form-control {
   line-height: 1.25;
 }
 
-/* Placa Mercosul saindo atrás da barra inferior */
+/* Placa Mercosul completa em destaque na frente */
 .crv-mercosul-peek {
   position: absolute;
-  right: 48px;
-  bottom: 44px;
-  width: 150px;
-  height: 54px;
+  right: 12px;
+  bottom: 14px;
+  width: 158px;
   background: var(--white);
-  border-radius: 8px;
-  border: 1.5px solid #CBD5E1;
-  box-shadow: 0 10px 24px rgba(5, 14, 38, 0.25);
+  border-radius: 9px;
+  border: 2px solid #CBD5E1;
+  box-shadow: 0 14px 30px rgba(5, 14, 38, 0.38);
   overflow: hidden;
-  z-index: 3;
+  z-index: 7;
 }
 
 .crv-mercosul-top {
-  height: 22px;
+  height: 20px;
   background: #0038A8;
   color: var(--white);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 8px 0 32px;
+  padding: 0 8px 0 38px;
   font-family: var(--font-display);
-  font-size: 0.68rem;
+  font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.14em;
+}
+
+.crv-mercosul-body {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 8px 7px;
+  background: var(--white);
+}
+
+.crv-mercosul-br {
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #0038A8;
+}
+
+.crv-mercosul-code {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #0B1238;
+  line-height: 1;
 }
 
 /* Cards flutuantes brancos */
@@ -1516,7 +1540,7 @@ textarea.form-control {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 16px 22px;
+  padding: 16px 158px 16px 22px;
   border-radius: 18px;
   background: linear-gradient(90deg, #0D255C 0%, #09183E 100%);
   color: var(--white);
