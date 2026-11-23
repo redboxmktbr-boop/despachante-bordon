@@ -71,6 +71,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
+  overflow-x: clip;
 }
 
 body {
@@ -78,7 +79,8 @@ body {
   color: var(--slate-800);
   background-color: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -718,13 +720,25 @@ h1, h2, h3, h4, h5 {
   font-size: 0.9rem;
 }
 
+.hero-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-btn-arrow {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+  margin-left: auto;
+  opacity: 0.9;
+}
+
 .hero-btn-urgent {
   text-align: left;
   line-height: 1.2;
-}
-
-.hero-btn-urgent span {
-  display: block;
 }
 
 /* Cartão CRLV Flutuante na Hero */
@@ -2723,11 +2737,36 @@ textarea.form-control {
   }
 
   .header-inner {
-    height: 76px;
+    height: 74px;
+    gap: 10px;
+  }
+
+  .brand-logo {
+    gap: 10px;
+    min-width: 0;
   }
 
   .brand-logo img {
-    height: 58px;
+    height: 48px;
+  }
+
+  .brand-text {
+    display: flex;
+    padding-left: 10px;
+    border-left: 1px solid var(--slate-300);
+  }
+
+  .brand-name {
+    font-size: 0.98rem;
+  }
+
+  .brand-sub {
+    font-size: 0.65rem;
+  }
+
+  .mobile-menu-btn {
+    border-radius: 10px;
+    flex-shrink: 0;
   }
 
   .nav-desktop,
@@ -2740,7 +2779,7 @@ textarea.form-control {
   }
 
   .section {
-    padding-block: 56px;
+    padding-block: 52px;
   }
 
   .services-grid,
@@ -2751,8 +2790,74 @@ textarea.form-control {
     grid-template-columns: 1fr;
   }
 
+  /* Hero Mobile Idêntica à Referência */
   .hero {
-    padding-block: 36px 48px;
+    padding-block: 24px 44px;
+  }
+
+  .hero-car-bg {
+    top: 76px;
+    left: auto;
+    right: -48px;
+    transform: none;
+    width: 245px;
+    opacity: 0.88;
+  }
+
+  .hero-badge {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.74rem;
+    padding: 8px 12px;
+    margin-bottom: 22px;
+    white-space: normal;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.75rem, 7.6vw, 2.25rem);
+    line-height: 1.12;
+    margin-bottom: 18px;
+    max-width: 82%;
+  }
+
+  .hero-lead {
+    font-size: 0.9375rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-cta-row .btn {
+    width: 100%;
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 15px 18px;
+    border-radius: 14px;
+    gap: 14px;
+    font-size: 0.95rem;
+    white-space: normal;
+  }
+
+  .hero-btn-icon {
+    padding-right: 14px;
+    border-right: 1px solid rgba(255, 255, 255, 0.28);
+  }
+
+  .hero-btn-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-btn-label {
+    text-align: left;
+  }
+
+  .hero-btn-arrow {
+    display: inline-block;
   }
 
   .hero-trust-list,
@@ -2762,6 +2867,22 @@ textarea.form-control {
 
   .lead-card {
     padding: 22px 18px;
+  }
+
+  /* Prevenir overflow em botões e containers no mobile */
+  .btn {
+    white-space: normal;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .cta-box {
+    padding: 30px 20px;
+  }
+
+  .cta-box-actions,
+  .cta-box-actions .btn {
+    width: 100%;
   }
 
   .wa-float {
@@ -2785,6 +2906,58 @@ textarea.form-control {
     right: 88px;
     bottom: 18px;
     max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brand-logo img {
+    height: 44px;
+  }
+
+  .brand-name {
+    font-size: 0.9rem;
+  }
+
+  .brand-sub {
+    font-size: 0.6rem;
+  }
+
+  .hero h1 {
+    max-width: 86%;
+  }
+
+  .crv-row-2,
+  .crv-row-3,
+  .crv-row-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .crv-mercosul-peek {
+    display: none;
+  }
+
+  .why-float-exp,
+  .why-float-trust {
+    display: none;
+  }
+
+  .why-bottom-banner {
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-top: 14px;
+  }
+
+  .why-visual {
+    padding: 0;
   }
 }
 
@@ -2872,19 +3045,5 @@ textarea.form-control {
   .btn::after {
     animation: none !important;
     transition: none !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .brand-text {
-    display: none;
-  }
-
-  .hero-cta-row .btn {
-    width: 100%;
   }
 }
